@@ -12,6 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const user = await prisma.user.findUnique({
     where: { email },
   });
+  // checking the password
   if (user && bcrypt.compareSync(password, user.password)) {
     const token = jwt.sign(
       {
