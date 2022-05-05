@@ -1,4 +1,4 @@
-Done when you create a schema
+Done when you create or update schema definition
 database update: npx prisma db push
 
 Done after changes are made to the schema
