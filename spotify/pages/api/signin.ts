@@ -31,6 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         maxAge: 8 * 60 * 60 * 1000,
         path: "/",
         sameSite: "lax",
+
         secure: process.env.NODE_ENV === "production",
       })
     );

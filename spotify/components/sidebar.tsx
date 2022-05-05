@@ -1,6 +1,5 @@
 import {
   Box,
-  Center,
   Divider,
   LinkBox,
   LinkOverlay,
@@ -36,7 +35,7 @@ const Sidebar = () => {
   // const { playlists } = usePlaylist();
 
   const playlists = new Array(30).fill(1).map((_, i) => `Playlist ${i}`);
-  console.log(playlists);
+
   return (
     <Box
       width="100%"

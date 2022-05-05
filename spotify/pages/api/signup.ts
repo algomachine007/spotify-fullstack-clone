@@ -45,8 +45,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     })
   );
 
-  console.log("user", user);
-
   // send a user to frontend
   res.json(user);
 };
