@@ -6,33 +6,39 @@ import { auth } from "../lib/mutations";
 import { useRouter } from "next/router";
 import { useSWRConfig } from "swr";
 
+type Mode = {
+  mode: "signin" | "signup";
+};
+
 const initialState = {
   email: "",
   password: "",
 };
 
-const AuthForm = ({ mode }) => {
-  const [isLoading, setisLoading] = useState<Boolean>(false);
+// dependency ingestion: where a component relies on external props for its functionality. This simple prop would make api calls, render form etc.
+
+const AuthForm = ({ mode }: Mode) => {
+  const router = useRouter();
+  const [isLoading, setisLoading] = useState<boolean>(false);
 
   const [data, setData] = useState(initialState);
-
-  const { email, password } = data;
-
-  const router = useRouter();
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
+  const { email, password } = data;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setisLoading(true);
-    console.log("email", email);
+
     const user = await auth(mode, { email, password });
 
     setisLoading(false);
 
-    router.push("/");
+    if (user) {
+      router.push("/");
+    }
   };
 
   return (
