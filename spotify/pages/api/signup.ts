@@ -20,7 +20,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     });
   } catch (e) {
     res.status(401).json({ message: "Email already in use" });
-    console.log(e.message);
+
     return;
   }
 
