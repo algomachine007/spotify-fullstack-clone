@@ -1,3 +1,5 @@
+import React from "react";
+
 import GradientLayout from "../components/gradientLayout";
 
 const Home = () => {

@@ -1,10 +1,9 @@
 import { Box, Button, Flex, Input } from "@chakra-ui/react";
-import { FC, useState } from "react";
-
 import Image from "next/image";
-import { auth } from "../lib/mutations";
 import { useRouter } from "next/router";
-import { useSWRConfig } from "swr";
+import { useState } from "react";
+
+import { auth } from "../lib/mutations";
 
 type Mode = {
   mode: "signin" | "signup";
