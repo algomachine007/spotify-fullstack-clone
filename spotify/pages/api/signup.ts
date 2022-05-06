@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../lib/prisma";
 
-
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const salt = bcrypt.genSaltSync();
   const { email, password } = req.body;
@@ -41,6 +40,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       maxAge: 8 * 60 * 60 * 1000,
       path: "/",
       sameSite: "lax",
+      // https when we've hosted it
       secure: process.env.NODE_ENV === "production",
     })
   );
