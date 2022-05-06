@@ -14,7 +14,7 @@ const initialState = {
   password: "",
 };
 
-// dependency ingestion: where a component relies on external props for its functionality. This simple prop would make api calls, render form etc.
+// dependency ingestion: where a component relies on external props for all its functionality. This simple prop would make api calls and requests, render form type etc.
 
 const AuthForm = ({ mode }: Mode) => {
   const router = useRouter();

@@ -2,8 +2,8 @@ import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 
 const GradientLayout = ({
-  color,
   children,
+  color,
   image,
   title,
   subtitle,
@@ -37,6 +37,7 @@ const GradientLayout = ({
           </Text>
         </Box>
       </Flex>
+      <Box paddingY="50px">{children}</Box>
     </Box>
   );
 };
