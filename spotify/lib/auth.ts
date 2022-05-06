@@ -2,7 +2,6 @@ import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "./prisma";
 
-
 // handler is req and res
 
 export const validateRoute = (handler) => {
@@ -30,6 +29,6 @@ export const validateRoute = (handler) => {
 
 export const validateToken = (token) => {
   const user = jwt.verify(token, "hello");
-
+  // we're using this function to get the user based on the token
   return user;
 };
