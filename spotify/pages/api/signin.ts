@@ -1,8 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
-
 import bcrypt from "bcrypt";
 import cookie from "cookie";
 import jwt from "jsonwebtoken";
+import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../lib/prisma";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,8 +11,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const user = await prisma.user.findUnique({
     where: { email },
   });
+
   // checking the password
-  if (user && bcrypt.compareSync(password, user.password)) {
+  const hashedPassword = await bcrypt.hashSync(password, 10);
+
+  if (user && hashedPassword) {
     const token = jwt.sign(
       {
         email: user.email,
@@ -37,7 +39,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     );
     res.json(user);
   } else {
-    // 401 is unauthorized
+    // 401 means unauthorized
     res.status(401).json({ message: "Email or password incorrect" });
   }
 };

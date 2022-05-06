@@ -2,7 +2,6 @@ import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
 import { auth } from "../lib/mutations";
 
 type Mode = {
@@ -32,6 +31,8 @@ const AuthForm = ({ mode }: Mode) => {
     setisLoading(true);
 
     const user = await auth(mode, { email, password });
+
+    console.log(user);
 
     setisLoading(false);
 

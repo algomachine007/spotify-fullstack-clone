@@ -1,10 +1,22 @@
-import { Box, Divider, LinkBox, LinkOverlay, List, ListIcon, ListItem } from "@chakra-ui/layout";
+import {
+  Box,
+  Divider,
+  LinkBox,
+  LinkOverlay,
+  List,
+  ListIcon,
+  ListItem
+} from "@chakra-ui/layout";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { MdFavorite, MdHome, MdLibraryMusic, MdPlaylistAdd, MdSearch } from "react-icons/md";
-
+import {
+  MdFavorite,
+  MdHome,
+  MdLibraryMusic,
+  MdPlaylistAdd,
+  MdSearch
+} from "react-icons/md";
 import { usePlaylist } from "../lib/hooks/hooks";
 
 const navMenu = [
@@ -23,11 +35,11 @@ const Sidebar = () => {
   const { playlists } = usePlaylist();
 
   // guarding the page so that if playlist isn't available, it will redirect to signin page
-  useEffect(() => {
-    if (!Array.isArray(playlists)) {
-      router.push("/signin");
-    }
-  }, [playlists, router]);
+  // useEffect(() => {
+  //   if (!Array.isArray(playlists)) {
+  //     router.push("/signin");
+  //   }
+  // }, [playlists, router]);
 
   return (
     <Box
@@ -87,7 +99,7 @@ const Sidebar = () => {
         <Divider color="gray.800" />
         <Box height="66%" overflowY="auto" paddingX="20px">
           <List spacing={2}>
-            {playlists &&
+            {Array.isArray(playlists) &&
               playlists.map((playlist: any) => (
                 <ListItem paddingX="20px" key={playlist.id}>
                   <LinkBox>
