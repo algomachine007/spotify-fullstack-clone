@@ -7,6 +7,7 @@ import prisma from "../lib/prisma";
 
 const Home = ({ artists }) => {
   const { user, isLoading } = useMe();
+  console.log("STRIPE", process.env.STRIPE_KEY);
 
   if (isLoading) {
     return <div>Loading...</div>;
