@@ -1,0 +1,15 @@
+{
+  "/_middleware": "pages/_middleware.js",
+  "/api/me": "pages/api/me.js",
+  "/api/playlist": "pages/api/playlist.js",
+  "/api/signin": "pages/api/signin.js",
+  "/api/signup": "pages/api/signup.js",
+  "/_app": "pages/_app.js",
+  "/signin": "pages/signin.html",
+  "/signup": "pages/signup.html",
+  "/_error": "pages/_error.js",
+  "/playlist/[id]": "pages/playlist/[id].js",
+  "/": "pages/index.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
