@@ -39,7 +39,7 @@ export const getServerSideProps = async ({ query, req }) => {
       },
     };
   }
-  console.log("Query Object", query);
+
   // get user id based on the token
 
   const [playlist] = await prisma.playlist.findMany({
