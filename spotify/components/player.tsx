@@ -1,25 +1,11 @@
 import { Flex, Text } from "@chakra-ui/layout";
-import {
-  Box,
-  ButtonGroup,
-  Center,
-  IconButton,
-  RangeSlider,
-  RangeSliderFilledTrack,
-  RangeSliderThumb,
-  RangeSliderTrack
-} from "@chakra-ui/react";
+import { Box, ButtonGroup, Center, IconButton, RangeSlider, RangeSliderFilledTrack, RangeSliderThumb, RangeSliderTrack } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-  MdOutlinePauseCircleFilled,
-  MdOutlinePlayCircleFilled,
-  MdOutlineRepeat,
-  MdShuffle,
-  MdSkipNext,
-  MdSkipPrevious
-} from "react-icons/md";
+import ReactHowler from "react-howler";
+import { MdOutlinePauseCircleFilled, MdOutlinePlayCircleFilled, MdOutlineRepeat, MdShuffle, MdSkipNext, MdSkipPrevious } from "react-icons/md";
 
 const Player = ({ songs, activeSong }) => {
+  console.log("activeSong", activeSong);
   const [playing, setPlaying] = useState(true);
   const [index, setIndex] = useState(0);
   const [seek, setSeek] = useState(0.0);
@@ -36,7 +22,9 @@ const Player = ({ songs, activeSong }) => {
   };
   return (
     <Box>
-      <Box>{/* <ReactHowler playing={playing} src={activeSong?.url} /> */}</Box>
+      <Box>
+        <ReactHowler playing={playing} src={activeSong?.url} />{" "}
+      </Box>
       <Center color="gray.600">
         <ButtonGroup>
           <IconButton
