@@ -7,9 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "prisma generate",
-    "postinstall": "prisma generate --schema=prisma/schema.prisma",
-    "vercel-build": "prisma generate --schema=prisma/schema.prisma && prisma migrate deploy && next build"
+    "vercel-build": "prisma:generate && next build",
+    "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE=\"dataproxy\" prisma generate"
   },
   "dependencies": {
     "@chakra-ui/layout": "^1.5.1",
