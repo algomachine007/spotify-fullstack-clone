@@ -11,6 +11,8 @@ type Mode = {
 const initialState = {
   email: "",
   password: "",
+  firstName: "",
+  lastName: "",
 };
 
 // dependency ingestion: where a component relies on external props for all its functionality. This simple prop would make api calls and requests, render form type etc.
@@ -62,6 +64,22 @@ const AuthForm = ({ mode }: Mode) => {
           <form onSubmit={handleSubmit}>
             <Input
               placeholder="email"
+              type="text"
+              name="firstName"
+              value={email}
+              onChange={handleChange}
+              style={{ marginBottom: 20 }}
+            />{" "}
+            <Input
+              placeholder="email"
+              type="text"
+              name="lastName"
+              value={email}
+              onChange={handleChange}
+              style={{ marginBottom: 20 }}
+            />
+            <Input
+              placeholder="email"
               type="email"
               name="email"
               value={email}
@@ -76,7 +94,6 @@ const AuthForm = ({ mode }: Mode) => {
               onChange={handleChange}
               style={{ marginBottom: 20 }}
             />
-
             <Button
               type="submit"
               bg="green.500"
