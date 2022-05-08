@@ -9,7 +9,7 @@ const PlayerBar = () => {
   const songs = useStoreState((store: any) => store.activeSongs);
   const activeSong = useStoreState((store: any) => store.activeSong); // playing song
 
-  console.log("activeSong", activeSong);
+  console.log("activeSog", activeSong);
   console.log("songs", songs);
   return (
     <Box height="100px" width="100vw" bg="gray.900" padding="10px">
@@ -17,7 +17,7 @@ const PlayerBar = () => {
         {activeSong && (
           <Box padding="20px" color="white" width="30%">
             <Text fontSize="large"> {activeSong.name}</Text>
-            <Text fontSize="sm">{activeSong.artist.name}</Text>
+            {/* <Text fontSize="sm">{activeSong.artist.name}</Text> */}
           </Box>
         )}
         <Box width="40%">
