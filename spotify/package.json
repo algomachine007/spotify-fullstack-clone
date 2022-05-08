@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "prebuild": "prisma generate",
-    "postinstall": "prisma generate --schema=./path/to/your/schema.prisma",
-    "vercel-build": "prisma generate --schema=./path/to/your/schema.prisma && prisma migrate deploy && next build"
+    "postinstall": "prisma generate --schema=prisma/schema.prisma",
+    "vercel-build": "prisma generate --schema=prisma/schema.prisma && prisma migrate deploy && next build"
   },
   "dependencies": {
     "@chakra-ui/layout": "^1.5.1",
